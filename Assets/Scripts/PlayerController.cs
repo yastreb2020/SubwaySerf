@@ -56,5 +56,17 @@ public class PlayerController : MonoBehaviour
         {
             isOnGround = true;
         }
+        else if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Powerup"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
