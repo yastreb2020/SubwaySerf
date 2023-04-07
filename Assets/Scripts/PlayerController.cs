@@ -7,7 +7,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRb;
 
     private float moveStep = 2.5f;
-    public float jumpSpeed;
+    public float jumpSpeed = 450;
+
+    private float superJumpSpeed = 600;
 
     /// <summary>
     /// 1 - left, 2 - middle, 3 - right
@@ -27,9 +29,14 @@ public class PlayerController : MonoBehaviour
         ChangeLanes();
 
         // jump
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isOnGround){
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isOnGround)
+        {
             playerRb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
             isOnGround = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow) && !isOnGround)
+        {
+            playerRb.AddForce(Vector3.down * jumpSpeed, ForceMode.Impulse);
         }
 
         // float horizontalInput = Input.GetAxis("Horizontal");
@@ -58,8 +65,9 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
-            Destroy(gameObject);
+            isOnGround = true;
         }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -67,6 +75,9 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Powerup"))
         {
             Destroy(other.gameObject);
+        } else if (other.CompareTag("Obstacle"))
+        {
+            Destroy(gameObject);
         }
     }
 }
