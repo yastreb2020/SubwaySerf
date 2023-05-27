@@ -174,13 +174,19 @@ MonoBehaviour:
   - {fileID: 4752748249350175359, guid: b580cfa23cda6f84b92c8597900c1ffd, type: 3}
   powerups:
   - {fileID: 413607889585504915, guid: d630bb8d996c30f4783a0c4367596a84, type: 3}
+  - {fileID: 6270390045177193872, guid: 134873a592b93d545b6775547941423c, type: 3}
   buildings:
   - {fileID: 2900206780222288587, guid: 8491231115fb29849a74c008bb165b06, type: 3}
   - {fileID: 5047674203326418093, guid: 5166b2e2f50a7ba408965699c100e1d7, type: 3}
   - {fileID: 2251145931810432664, guid: 4414e900f56d0a7429ceec451882d7af, type: 3}
   - {fileID: 3967647470266331517, guid: fe5d50253e6fe5547be4aed071dc3669, type: 3}
-  obstacleSpawnTime: 5
+  obstacleSpawnTime: 3
+  powerupSpawnTime: 5
   buildingSpawnTime: 1
+  speed: 5
+  boundaryZ: -20
+  speedIncreaseTime: 1
+  speedIncreaseValue: 1
 --- !u!1001 &34083346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -336,6 +342,67 @@ Transform:
   m_Father: {fileID: 1015539093}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &444852285
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 148032, guid: a8a06204dcfa9784b86eba87c2e0a1a2, type: 3}
+      propertyPath: m_Name
+      value: DollarSign
+      objectReference: {fileID: 0}
+    - target: {fileID: 148032, guid: a8a06204dcfa9784b86eba87c2e0a1a2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411208, guid: a8a06204dcfa9784b86eba87c2e0a1a2, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 411208, guid: a8a06204dcfa9784b86eba87c2e0a1a2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411208, guid: a8a06204dcfa9784b86eba87c2e0a1a2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 411208, guid: a8a06204dcfa9784b86eba87c2e0a1a2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 411208, guid: a8a06204dcfa9784b86eba87c2e0a1a2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411208, guid: a8a06204dcfa9784b86eba87c2e0a1a2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411208, guid: a8a06204dcfa9784b86eba87c2e0a1a2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411208, guid: a8a06204dcfa9784b86eba87c2e0a1a2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411208, guid: a8a06204dcfa9784b86eba87c2e0a1a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411208, guid: a8a06204dcfa9784b86eba87c2e0a1a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411208, guid: a8a06204dcfa9784b86eba87c2e0a1a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a8a06204dcfa9784b86eba87c2e0a1a2, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,6 +1543,10 @@ PrefabInstance:
     - target: {fileID: 8821865806466652101, guid: 67bf4a787e4c28d4da57d43b671a910b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821865806466652103, guid: 67bf4a787e4c28d4da57d43b671a910b, type: 3}
+      propertyPath: superJumpSpeed
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 8821865806466652153, guid: 67bf4a787e4c28d4da57d43b671a910b, type: 3}
       propertyPath: m_Name

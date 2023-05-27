@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class MoveToCamera : MonoBehaviour
 {
-    public float speed = 5;
-    public float boundaryZ = -20;
-    // Start is called before the first frame update
+    SpawnManager gameManager;
+
     void Start()
     {
-        
+        gameManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * -speed * Time.deltaTime, Space.World);
-        if(transform.position.z < boundaryZ)
+        transform.Translate(Vector3.forward * -gameManager.GetCurrentSpeed() * Time.deltaTime, Space.World);
+        if(transform.position.z < gameManager.boundaryZ)
         {
             Destroy(gameObject);
         }

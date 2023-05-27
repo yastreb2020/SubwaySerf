@@ -7,9 +7,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRb;
 
     private float moveStep = 2.5f;
-    public float jumpSpeed = 450;
+    private float jumpSpeed;
+    [SerializeField] float normalJumpSpeed = 350;
+    [SerializeField] float superJumpSpeed = 600;
 
-    private float superJumpSpeed = 600;
+    SpawnManager gameManager;
 
     /// <summary>
     /// 1 - left, 2 - middle, 3 - right
@@ -22,6 +24,9 @@ public class PlayerController : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody>();
         currentLane = 2;
+        jumpSpeed = normalJumpSpeed;
+
+        gameManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
     }
 
     void Update()
@@ -47,13 +52,22 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow) && currentLane > 1)
         {
-            transform.position -= new Vector3(moveStep, 0, 0);
+            StartCoroutine(ChangeLane(-1));
             currentLane--;
         }
         if (Input.GetKeyDown(KeyCode.RightArrow) && currentLane < 3)
         {
-            transform.position += new Vector3(moveStep, 0, 0);
+            StartCoroutine(ChangeLane(1));
             currentLane++;
+        }
+    }
+
+    IEnumerator ChangeLane(int sign)
+    {
+        for (float i = 0; i < moveStep; i += 0.1f)
+        {
+            transform.position += new Vector3(0.1f * sign, 0, 0);
+            yield return null;
         }
     }
 
@@ -70,10 +84,27 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    IEnumerator SuperJump()
+    {
+        jumpSpeed = superJumpSpeed;
+        Debug.Log("super sneakers");
+        yield return new WaitForSeconds(5);
+        Debug.Log("normal jump");
+        jumpSpeed = normalJumpSpeed;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Powerup"))
         {
+            if (other.gameObject.name == "Multiplier Powerup(Clone)")
+            {
+                StartCoroutine(gameManager.ScoreMultiplier());
+            }
+            else if (other.gameObject.name == "Super Jump Powerup(Clone)")
+            {
+                StartCoroutine(SuperJump());
+            }
             Destroy(other.gameObject);
         } else if (other.CompareTag("Obstacle"))
         {
