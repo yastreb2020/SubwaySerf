@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class SpawnManager : MonoBehaviour
     int score = 0;
     int scoreValue = 1;
 
+    [SerializeField] TextMeshProUGUI scoreTextObject;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +39,7 @@ public class SpawnManager : MonoBehaviour
     private void FixedUpdate()
     {
         score += scoreValue;
+        SetScoreText(score);
         //Debug.Log("Score: " + score);
     }
 
@@ -82,5 +85,10 @@ public class SpawnManager : MonoBehaviour
     public float GetCurrentSpeed()
     {
         return speed;
+    }
+
+    private void SetScoreText(int score)
+    {
+        scoreTextObject.text = "Score: " + score;
     }
 }
