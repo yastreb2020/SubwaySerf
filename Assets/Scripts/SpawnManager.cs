@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] GameObject[] obstacles;
     [SerializeField] GameObject[] powerups;
     [SerializeField] GameObject[] buildings;
+
+    [SerializeField] GameObject powerupTable;
+    [SerializeField] TextMeshProUGUI scoreTextObject;
+
+    bool[] currentPowerups;
 
     private float[] xSpawnLocations = {-2.5f, 0, 2.5f};
     private float zSpawnLocation = 70;
@@ -25,15 +31,27 @@ public class SpawnManager : MonoBehaviour
     int score = 0;
     int scoreValue = 1;
 
-    [SerializeField] TextMeshProUGUI scoreTextObject;
 
-    // Start is called before the first frame update
+
     void Start()
     {
+        currentPowerups = new bool[powerups.Length];
+        InitializeCurrentPowerups();
+
         StartCoroutine(SpawnCoroutine(obstacles, obstacleSpawnTime));
         StartCoroutine(SpawnCoroutine(powerups, powerupSpawnTime));
+
         InvokeRepeating("SpawnBuilding", 1.0f, buildingSpawnTime);
         InvokeRepeating("IncreaseGameSpeed", speedIncreaseTime, speedIncreaseTime);
+    }
+
+    void InitializeCurrentPowerups()
+    {
+        for(int i = 0; i < currentPowerups.Length; i++)
+        {
+            currentPowerups[i] = false;
+            // Debug.Log("currnt pwerups: " + currentPowerups[i]);
+        }
     }
 
     private void FixedUpdate()
@@ -43,11 +61,20 @@ public class SpawnManager : MonoBehaviour
         //Debug.Log("Score: " + score);
     }
 
+    // 10 sec
     public IEnumerator ScoreMultiplier()
     {
         scoreValue = 2;
         Debug.Log("Score doubled");
-        yield return new WaitForSeconds(10);
+        GameObject newPowerupBar = Instantiate(powerupTable, GameObject.Find("Canvas").transform);
+        Slider powerupSlider = newPowerupBar.GetComponentInChildren<Slider>();
+        powerupSlider.value = 1;
+        for (int i = 0; i < 10; i++)
+        {
+            powerupSlider.value -= 0.1f;
+            yield return new WaitForSeconds(1);
+        }
+        Destroy(newPowerupBar);
         scoreValue = 1;
         Debug.Log("Score normal");
     }
