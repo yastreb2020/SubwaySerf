@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] GameObject[] obstacles;
-    [SerializeField] GameObject[] powerups;
+    public GameObject[] powerups;
     [SerializeField] GameObject[] buildings;
 
     bool[] currentPowerups;
@@ -64,7 +64,7 @@ public class SpawnManager : MonoBehaviour
     {
         scoreValue = 2;
         Debug.Log("Score doubled");
-        StartCoroutine(uiHandler.ShowPowerupBar());
+        StartCoroutine(uiHandler.ShowPowerupBar(powerups[1], 10));
         scoreValue = 1;
         Debug.Log("Score normal");
     }

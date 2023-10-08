@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
     {
         jumpSpeed = superJumpSpeed;
         Debug.Log("super sneakers");
+        StartCoroutine(gameManager.uiHandler.ShowPowerupBar(gameManager.powerups[0], 5));
         yield return new WaitForSeconds(5);
         Debug.Log("normal jump");
         jumpSpeed = normalJumpSpeed;
@@ -107,10 +108,12 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(SuperJump());
             }
             Destroy(other.gameObject);
-        } else if (other.CompareTag("Obstacle"))
+        } 
+        else if (other.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
-        } else if (other.CompareTag("Gem"))
+        } 
+        else if (other.CompareTag("Gem"))
         {
             Destroy(other.gameObject);
             gems++;
