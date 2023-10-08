@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRb;
 
+    private int gems = 0;
     private float moveStep = 2.5f;
     private float jumpSpeed;
     [SerializeField] float normalJumpSpeed = 350;
@@ -99,7 +100,7 @@ public class PlayerController : MonoBehaviour
         {
             if (other.gameObject.name == "Multiplier Powerup(Clone)")
             {
-                StartCoroutine(gameManager.ScoreMultiplier());
+                gameManager.ScoreMultiplier();
             }
             else if (other.gameObject.name == "Super Jump Powerup(Clone)")
             {
@@ -109,6 +110,10 @@ public class PlayerController : MonoBehaviour
         } else if (other.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
+        } else if (other.CompareTag("Gem"))
+        {
+            Destroy(other);
+            gems++;
         }
     }
 }

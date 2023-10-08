@@ -1,17 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] GameObject[] obstacles;
     [SerializeField] GameObject[] powerups;
     [SerializeField] GameObject[] buildings;
-
-    [SerializeField] GameObject powerupTable;
-    [SerializeField] TextMeshProUGUI scoreTextObject;
 
     bool[] currentPowerups;
 
@@ -32,7 +27,7 @@ public class SpawnManager : MonoBehaviour
     int score = 0;
     int scoreValue = 1;
 
-
+    UIHandler uiHandler;
 
     void Start()
     {
@@ -44,6 +39,8 @@ public class SpawnManager : MonoBehaviour
 
         InvokeRepeating("SpawnBuilding", 1.0f, buildingSpawnTime);
         StartCoroutine(IncreaseGameSpeed());
+
+        uiHandler = GameObject.Find("Canvas").GetComponent<UIHandler>();
     }
 
     void InitializeCurrentPowerups()
@@ -58,24 +55,16 @@ public class SpawnManager : MonoBehaviour
     private void FixedUpdate()
     {
         score += scoreValue;
-        SetScoreText(score);
+        uiHandler.SetScoreText(score);
         Debug.Log("Speed: " + speed);
     }
 
     // 10 sec
-    public IEnumerator ScoreMultiplier()
+    public void ScoreMultiplier()
     {
         scoreValue = 2;
         Debug.Log("Score doubled");
-        GameObject newPowerupBar = Instantiate(powerupTable, GameObject.Find("Canvas").transform);
-        Slider powerupSlider = newPowerupBar.GetComponentInChildren<Slider>();
-        powerupSlider.value = 1;
-        for (int i = 0; i < 10; i++)
-        {
-            powerupSlider.value -= 0.1f;
-            yield return new WaitForSeconds(1);
-        }
-        Destroy(newPowerupBar);
+        StartCoroutine(uiHandler.ShowPowerupBar());
         scoreValue = 1;
         Debug.Log("Score normal");
     }
@@ -124,8 +113,4 @@ public class SpawnManager : MonoBehaviour
         return speed;
     }
 
-    private void SetScoreText(int score)
-    {
-        scoreTextObject.text = "Score: " + score;
-    }
 }
