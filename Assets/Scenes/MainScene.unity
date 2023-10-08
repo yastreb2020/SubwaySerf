@@ -182,13 +182,11 @@ MonoBehaviour:
   - {fileID: 3967647470266331517, guid: fe5d50253e6fe5547be4aed071dc3669, type: 3}
   powerupTable: {fileID: 8864043878849932265, guid: b6fbfb521367ddc43afc3ea7675bae19, type: 3}
   scoreTextObject: {fileID: 531572997}
-  obstacleSpawnTime: 3
-  powerupSpawnTime: 5
+  obstacleSpawnTime: 5
+  powerupSpawnTime: 6
   buildingSpawnTime: 1
   speed: 5
   boundaryZ: -20
-  speedIncreaseTime: 1
-  speedIncreaseValue: 1
 --- !u!1001 &34083346
 PrefabInstance:
   m_ObjectHideFlags: 0

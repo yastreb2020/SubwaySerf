@@ -26,8 +26,9 @@ public class SpawnManager : MonoBehaviour
 
     [SerializeField] float speed = 5;
     public float boundaryZ = -20;
-    [SerializeField] private float speedIncreaseTime = 1;
-    [SerializeField] private float speedIncreaseValue = 1;
+    private float speedIncreaseTime = 3;
+    private float speedIncreaseValue = 0.5f;
+    private float maxSpeed = 30.0f;
     int score = 0;
     int scoreValue = 1;
 
@@ -42,7 +43,7 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(SpawnCoroutine(powerups, powerupSpawnTime));
 
         InvokeRepeating("SpawnBuilding", 1.0f, buildingSpawnTime);
-        InvokeRepeating("IncreaseGameSpeed", speedIncreaseTime, speedIncreaseTime);
+        StartCoroutine(IncreaseGameSpeed());
     }
 
     void InitializeCurrentPowerups()
@@ -58,7 +59,7 @@ public class SpawnManager : MonoBehaviour
     {
         score += scoreValue;
         SetScoreText(score);
-        //Debug.Log("Score: " + score);
+        Debug.Log("Speed: " + speed);
     }
 
     // 10 sec
@@ -79,17 +80,26 @@ public class SpawnManager : MonoBehaviour
         Debug.Log("Score normal");
     }
 
-    void IncreaseGameSpeed()
+    private IEnumerator IncreaseGameSpeed()
     {
-        speed += speedIncreaseValue;
+        while (speed < maxSpeed) { 
+            yield return new WaitForSeconds(speedIncreaseTime);
+            speed += speedIncreaseValue;
+        }
     }
 
-    IEnumerator SpawnCoroutine(GameObject[] objectArray, float spawnTime)
+    IEnumerator SpawnCoroutine(GameObject[] objectArray, float spawnTimeIndex)
     {
+        float oldSpeed = speed;
         while (true)
         {
-            yield return new WaitForSeconds(spawnTime);
+            yield return new WaitForSeconds(spawnTimeIndex);
             SpawnObject(objectArray);
+            if (speed / oldSpeed > 5)
+            {
+                spawnTimeIndex -= 1;
+                oldSpeed = speed;
+            }
         }
     }
 
