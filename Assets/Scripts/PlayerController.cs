@@ -112,8 +112,9 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
         } else if (other.CompareTag("Gem"))
         {
-            Destroy(other);
+            Destroy(other.gameObject);
             gems++;
+            gameManager.uiHandler.UpdateGemsText(gems);
         }
     }
 }

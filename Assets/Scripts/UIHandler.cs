@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class UIHandler : MonoBehaviour
 {
-
     [SerializeField] GameObject powerupTable;
     [SerializeField] TextMeshProUGUI scoreTextObject;
+    [SerializeField] TextMeshProUGUI gemsTextObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +34,14 @@ public class UIHandler : MonoBehaviour
         }
         Destroy(newPowerupBar);
     }
+
     public void SetScoreText(int score)
     {
         scoreTextObject.text = "Score: " + score;
+    }
+
+    public void UpdateGemsText(int gems)
+    {
+        gemsTextObject.text = $"Gems: {gems}";
     }
 }

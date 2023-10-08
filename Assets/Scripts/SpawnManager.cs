@@ -27,7 +27,7 @@ public class SpawnManager : MonoBehaviour
     int score = 0;
     int scoreValue = 1;
 
-    UIHandler uiHandler;
+    public UIHandler uiHandler;
 
     void Start()
     {
