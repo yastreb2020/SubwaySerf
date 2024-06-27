@@ -105,6 +105,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (other.gameObject.name == "Super Jump Powerup(Clone)")
             {
+                StopAllCoroutines();
                 StartCoroutine(SuperJump());
             }
             Destroy(other.gameObject);
