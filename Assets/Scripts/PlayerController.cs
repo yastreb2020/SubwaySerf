@@ -6,13 +6,18 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRb;
 
+
     private int gems = 0;
     private float moveStep = 2.5f;
     private float jumpSpeed;
+    [SerializeField]
+    GameController MyGameController;
     [SerializeField] float normalJumpSpeed = 350;
     [SerializeField] float superJumpSpeed = 600;
 
     SpawnManager gameManager;
+    [SerializeField]
+    MenuManager myMenuManager;
 
     /// <summary>
     /// 1 - left, 2 - middle, 3 - right
@@ -43,6 +48,10 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.DownArrow) && !isOnGround)
         {
             playerRb.AddForce(Vector3.down * jumpSpeed, ForceMode.Impulse);
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            myMenuManager.PauseOn();
         }
 
         // float horizontalInput = Input.GetAxis("Horizontal");
@@ -112,7 +121,9 @@ public class PlayerController : MonoBehaviour
         } 
         else if (other.CompareTag("Obstacle"))
         {
-            Destroy(gameObject);
+            MyGameController.GameOver(gameManager, this);
+            //Destroy(gameManager);
+            //Destroy(gameObject);
         } 
         else if (other.CompareTag("Gem"))
         {
