@@ -123,69 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &25699419
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 25699420}
-  - component: {fileID: 25699421}
-  m_Layer: 0
-  m_Name: SpawnManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &25699420
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25699419}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &25699421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25699419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dfe7045c8b5e844a8692067ecf6c523, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstacles:
-  - {fileID: 2918144435468383522, guid: af60fd1dccb4ef54b9f52f18e54c3c08, type: 3}
-  - {fileID: 486824717981784084, guid: c5dcf37b0200d1f44be607bc844245a3, type: 3}
-  - {fileID: 8085314788741616723, guid: 7c8fc958e71bdbf42b7606892cb2940e, type: 3}
-  - {fileID: 4752748249350175359, guid: b580cfa23cda6f84b92c8597900c1ffd, type: 3}
-  powerups:
-  - {fileID: 413607889585504915, guid: d630bb8d996c30f4783a0c4367596a84, type: 3}
-  - {fileID: 6270390045177193872, guid: 134873a592b93d545b6775547941423c, type: 3}
-  buildings:
-  - {fileID: 2900206780222288587, guid: 8491231115fb29849a74c008bb165b06, type: 3}
-  - {fileID: 5047674203326418093, guid: 5166b2e2f50a7ba408965699c100e1d7, type: 3}
-  - {fileID: 2251145931810432664, guid: 4414e900f56d0a7429ceec451882d7af, type: 3}
-  - {fileID: 3967647470266331517, guid: fe5d50253e6fe5547be4aed071dc3669, type: 3}
-  obstacleSpawnTime: 5
-  powerupSpawnTime: 6
-  buildingSpawnTime: 1
-  speed: 5
-  boundaryZ: -20
-  uiHandler: {fileID: 0}
 --- !u!1001 &34083346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -193,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1824778927}
     m_Modifications:
+    - target: {fileID: -5072887355348796088, guid: 5166b2e2f50a7ba408965699c100e1d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5047674203326418093, guid: 5166b2e2f50a7ba408965699c100e1d7, type: 3}
       propertyPath: m_Name
       value: Gray House (2)
@@ -241,7 +182,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5072887355348796088, guid: 5166b2e2f50a7ba408965699c100e1d7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5166b2e2f50a7ba408965699c100e1d7, type: 3}
 --- !u!1 &82864528
 GameObject:
@@ -1010,7 +952,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &407789445
 GameObject:
@@ -1857,7 +1799,7 @@ RectTransform:
   - {fileID: 1180187963}
   - {fileID: 1161493960}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2041,6 +1983,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1824778927}
     m_Modifications:
+    - target: {fileID: -7360197995324433439, guid: 8491231115fb29849a74c008bb165b06, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2554748388933658737, guid: 8491231115fb29849a74c008bb165b06, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -2089,7 +2035,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black House (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7360197995324433439, guid: 8491231115fb29849a74c008bb165b06, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8491231115fb29849a74c008bb165b06, type: 3}
 --- !u!4 &897571005 stripped
 Transform:
@@ -2512,7 +2459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1145986779
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2553,7 +2500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1161493960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2654,11 +2601,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8864043878560429613, guid: b6fbfb521367ddc43afc3ea7675bae19, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8864043878560429613, guid: b6fbfb521367ddc43afc3ea7675bae19, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8864043878849932264, guid: b6fbfb521367ddc43afc3ea7675bae19, type: 3}
       propertyPath: m_Pivot.x
@@ -2754,15 +2701,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8864043879932778863, guid: b6fbfb521367ddc43afc3ea7675bae19, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8864043879932778863, guid: b6fbfb521367ddc43afc3ea7675bae19, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8864043879932778863, guid: b6fbfb521367ddc43afc3ea7675bae19, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6fbfb521367ddc43afc3ea7675bae19, type: 3}
@@ -2771,6 +2718,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8864043878849932264, guid: b6fbfb521367ddc43afc3ea7675bae19, type: 3}
   m_PrefabInstance: {fileID: 1282197445}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1416503856 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8821865806466652153, guid: 67bf4a787e4c28d4da57d43b671a910b, type: 3}
+  m_PrefabInstance: {fileID: 8821865806488340772}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1498363255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2778,6 +2730,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1824778927}
     m_Modifications:
+    - target: {fileID: -3017120440625254664, guid: 4414e900f56d0a7429ceec451882d7af, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1474504332686670882, guid: 4414e900f56d0a7429ceec451882d7af, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -2826,7 +2782,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red House (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3017120440625254664, guid: 4414e900f56d0a7429ceec451882d7af, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4414e900f56d0a7429ceec451882d7af, type: 3}
 --- !u!4 &1498363256 stripped
 Transform:
@@ -2926,7 +2883,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8529596084068195060, guid: fe5d50253e6fe5547be4aed071dc3669, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8529596084068195060, guid: fe5d50253e6fe5547be4aed071dc3669, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe5d50253e6fe5547be4aed071dc3669, type: 3}
 --- !u!1 &1614512747
 GameObject:
@@ -2995,8 +2957,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myMenuManager: {fileID: 788745076}
-  playerController: {fileID: 1804649975}
-  spawnManager: {fileID: 25699419}
+  playerController: {fileID: 0}
+  spawnManager: {fileID: 0}
 --- !u!4 &1649674955
 Transform:
   m_ObjectHideFlags: 0
@@ -3193,6 +3155,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1824778927}
     m_Modifications:
+    - target: {fileID: -3017120440625254664, guid: 4414e900f56d0a7429ceec451882d7af, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1474504332686670882, guid: 4414e900f56d0a7429ceec451882d7af, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -3241,7 +3207,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red House (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3017120440625254664, guid: 4414e900f56d0a7429ceec451882d7af, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4414e900f56d0a7429ceec451882d7af, type: 3}
 --- !u!1 &1802901990
 GameObject:
@@ -3378,17 +3345,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802901990}
   m_CullTransparentMesh: 1
---- !u!114 &1804649975 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8821865806466652103, guid: 67bf4a787e4c28d4da57d43b671a910b, type: 3}
-  m_PrefabInstance: {fileID: 8821865806488340772}
+--- !u!95 &1804649981
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1416503856}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0c5e4f8d4d1e504d83d5f3978590104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 329976880cdeb46459b11f7eb063a92d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1810785495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3396,6 +3372,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1824778927}
     m_Modifications:
+    - target: {fileID: -5072887355348796088, guid: 5166b2e2f50a7ba408965699c100e1d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5047674203326418093, guid: 5166b2e2f50a7ba408965699c100e1d7, type: 3}
       propertyPath: m_Name
       value: Gray House (1)
@@ -3444,7 +3424,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5072887355348796088, guid: 5166b2e2f50a7ba408965699c100e1d7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5166b2e2f50a7ba408965699c100e1d7, type: 3}
 --- !u!4 &1810785496 stripped
 Transform:
@@ -3791,7 +3772,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8529596084068195060, guid: fe5d50253e6fe5547be4aed071dc3669, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8529596084068195060, guid: fe5d50253e6fe5547be4aed071dc3669, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe5d50253e6fe5547be4aed071dc3669, type: 3}
 --- !u!4 &1847610655 stripped
 Transform:
@@ -3815,6 +3801,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1824778927}
     m_Modifications:
+    - target: {fileID: -5072887355348796088, guid: 5166b2e2f50a7ba408965699c100e1d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5047674203326418093, guid: 5166b2e2f50a7ba408965699c100e1d7, type: 3}
       propertyPath: m_Name
       value: Gray House
@@ -3863,7 +3853,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5072887355348796088, guid: 5166b2e2f50a7ba408965699c100e1d7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5166b2e2f50a7ba408965699c100e1d7, type: 3}
 --- !u!1001 &779496864091737207
 PrefabInstance:
@@ -3872,6 +3863,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1824778927}
     m_Modifications:
+    - target: {fileID: -3017120440625254664, guid: 4414e900f56d0a7429ceec451882d7af, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1474504332686670882, guid: 4414e900f56d0a7429ceec451882d7af, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3920,7 +3915,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red House
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3017120440625254664, guid: 4414e900f56d0a7429ceec451882d7af, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4414e900f56d0a7429ceec451882d7af, type: 3}
 --- !u!4 &2208779927911149653 stripped
 Transform:
@@ -3936,7 +3932,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2774624510450485136, guid: 83db3af0cc58c5f4fb2db53746a850b6, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2774624510450485136, guid: 83db3af0cc58c5f4fb2db53746a850b6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3982,7 +3978,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2802587148719070115, guid: 83db3af0cc58c5f4fb2db53746a850b6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 83db3af0cc58c5f4fb2db53746a850b6, type: 3}
 --- !u!1001 &4281620541221142255
 PrefabInstance:
@@ -4039,7 +4036,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8529596084068195060, guid: fe5d50253e6fe5547be4aed071dc3669, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8529596084068195060, guid: fe5d50253e6fe5547be4aed071dc3669, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe5d50253e6fe5547be4aed071dc3669, type: 3}
 --- !u!4 &5404280573594960861 stripped
 Transform:
@@ -4058,6 +4060,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1824778927}
     m_Modifications:
+    - target: {fileID: -7360197995324433439, guid: 8491231115fb29849a74c008bb165b06, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2554748388933658737, guid: 8491231115fb29849a74c008bb165b06, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -4106,7 +4112,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black House
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7360197995324433439, guid: 8491231115fb29849a74c008bb165b06, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8491231115fb29849a74c008bb165b06, type: 3}
 --- !u!1001 &8821865806488340772
 PrefabInstance:
@@ -4179,5 +4186,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8821865806466652103, guid: 67bf4a787e4c28d4da57d43b671a910b, type: 3}
+    - {fileID: 8821865806466652102, guid: 67bf4a787e4c28d4da57d43b671a910b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 67bf4a787e4c28d4da57d43b671a910b, type: 3}

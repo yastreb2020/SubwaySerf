@@ -32,8 +32,13 @@ public class MenuManager : MonoBehaviour
     }
     public void GeneralMenu_ButtonClick()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);
         preGameText.SetActive(true);
         //Application.Quit(0);
+    }
+    public void Load_GameSreen()
+    {
+        SceneManager.LoadScene(1);
     }
 }

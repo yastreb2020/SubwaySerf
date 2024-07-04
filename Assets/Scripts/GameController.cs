@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
     public void GameStart()
     {
         //playerController.SetActive(true);
-        myMenuManager.Return_ButtonClick();
+        myMenuManager.Load_GameSreen();
         //spawnManager.SetActive(true);
     }
     public void GameOver( SpawnManager spawnManager, PlayerController playerController)
